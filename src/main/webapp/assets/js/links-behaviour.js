@@ -8,7 +8,7 @@ $(function() {
 		if (authorCan && isAuthor) {
 			return;
 		}
-		if(!MODERATOR && required > KARMA) {
+		if(!MODERATOR && !TEACHER && required > KARMA) {
 			element.off('click');
 			element.click(function(e) {
 				e.preventDefault();

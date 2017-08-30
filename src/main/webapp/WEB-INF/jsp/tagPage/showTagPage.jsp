@@ -29,5 +29,17 @@
 			</ul>
 		</div>
 	</c:if>
+	<c:if test="${currentUser.teacher}">
+    		<div class="post-interactions">
+    			<ul class="post-action-nav piped-nav nav">
+    				<li class="nav-item">
+    					<a class="post-action requires-login"
+    					    href="${linkTo[TagPageController].editTagPageForm(tagPage.tagUriName)}">
+    						${t['edit']}
+    					</a>
+    				</li>
+    			</ul>
+    		</div>
+    	</c:if>
 </section>
 <tags:sideBar recentTags="${recentQuestionTags}" relatedQuestions="${relatedQuestions}"/>

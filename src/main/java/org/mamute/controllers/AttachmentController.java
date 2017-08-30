@@ -90,7 +90,7 @@ public class AttachmentController {
 	public void deleteAttachment(Long attachmentId) throws IOException {
 		Attachment attachment = attachments.load(attachmentId);
 		User current = loggedUser.getCurrent();
-		if (!attachment.canDelete(current) && !current.isModerator()) {
+		if (!attachment.canDelete(current) && !current.isModeratororTeacher()) {
 			validator.add(messageFactory.build("error", "unauthorized.title"));
 			result.use(http()).sendError(403);
 			return;

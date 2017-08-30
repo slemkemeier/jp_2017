@@ -28,7 +28,7 @@ public class LoggedUser {
 	}
 
 	public boolean isModerator() {
-		return isLoggedIn() ? user.isModerator() : false;
+		return isLoggedIn() ? user.isModeratororTeacher() : false;
 	}
 
 	public boolean canModerate(EnvironmentKarma environmentKarma) {

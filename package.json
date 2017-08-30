@@ -13,5 +13,10 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-filerev": "^0.2.1",
     "grunt-usemin": "^2.4.0"
+  },
+  "dependencies": {
+    "graceful-fs": "^4.1.11",
+    "minimatch": "^3.0.4",
+    "uuid": "^3.1.0"
   }
 }

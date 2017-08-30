@@ -22,6 +22,7 @@
 	var TAGS_SPLITTER_CHAR = "${env.get('tags.splitter.char')}";
 	var LOGGED_IN = ${currentUser.loggedIn};
 	var MODERATOR = ${currentUser.moderator};
+	var TEACHER = ${currentUser.teacher};
 	var KARMA = ${currentUser.current.karma};
 	var CONTEXT_PATH = "${contextPath}";
 	var AVIARY_API_KEY = "${env.get('filepicker.aviary.api_key')}";

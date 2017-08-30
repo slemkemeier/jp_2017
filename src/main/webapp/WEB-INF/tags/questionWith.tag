@@ -76,7 +76,7 @@
 							<input type="hidden" value="DELETE" name="_method">
 						</form>
 					</c:if>
-					<c:if test="${currentUser.moderator}">
+					<c:if test="${currentUser.moderator or currentUser.teacher}">
 						<li class="nav-item">
 							<a href="#" class="delete-post" data-delete-form="delete-question-fully-form" data-confirm-deletion="true">
 								${t['question.delete.fully']}
@@ -91,7 +91,7 @@
 			<tags:touchesFor touchable="${question}" microdata="true"/>
 		</div>
 		<tags:add-a-comment type="${t['question.type_name']}" item="${question}" votes="${commentVotes}"/>
-		<c:if test="${currentUser.moderator && question.hasPendingEdits()}">
+		<c:if test="${(currentUser.moderator || currentUser.teacher) && question.hasPendingEdits()}">
 			<a class="message moderator-alert" href="${linkTo[HistoryController].similarQuestions(question.id)}">${t['question.warns.has_edits']}</a>
 		</c:if>
 	</div>

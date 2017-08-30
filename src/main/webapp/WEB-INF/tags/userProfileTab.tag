@@ -66,7 +66,7 @@
 				<dd class="data-description ellipsis"><tags:prettyTime time="${selectedUser.createdAt}"/></dd>
 			</dl>
 		</li>
-		<c:if test="${isCurrentUser or currentUser.moderator}">
+		<c:if test="${isCurrentUser or currentUser.moderator or currentUser.teacher}">
 		<li class="data-line">
 			<h5 class="data-section-title ellipsis">${t['user_profile.private']}</h5>
 			<dl class="data-section">

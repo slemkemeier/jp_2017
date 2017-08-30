@@ -182,7 +182,7 @@ public class Comment implements Notifiable, Votable, Flaggable {
 
 	@Override
 	public boolean isVisibleForModeratorAndNotAuthor(User user) {
-		return !this.isVisible() && user != null && user.isModerator();
+		return !this.isVisible() && user != null && user.isModeratororTeacher();
 	}
 
 	@Override

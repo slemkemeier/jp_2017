@@ -81,6 +81,8 @@ public class User implements Identifiable {
 	
 	private boolean moderator = false;
 
+	private boolean teacher = true;
+
 	private boolean confirmedEmail = false;
 
 	private String forgotPasswordToken = "";
@@ -303,9 +305,25 @@ public class User implements Identifiable {
 	
 	public boolean canModerate(EnvironmentKarma environmentKarma) {
 		long karma = environmentKarma.get(PermissionRules.MODERATE_EDITS);
-		return isModerator() || this.karma >= karma;
+		return isModeratororTeacher() || this.karma >= karma;
 	}
-	
+
+	public boolean isTeacher() {
+		return teacher;
+	}
+
+	public User asTeacher() {
+		this.teacher = true;
+		return this;
+	}
+
+	public User removeTeacher() {
+		this.teacher = false;
+		return this;
+	}
+
+	public boolean isModeratororTeacher() { return (teacher || moderator);}
+
 	public void setSubscribed(boolean isSubscribed){
 		this.isSubscribed = isSubscribed;
 	}
@@ -361,12 +379,12 @@ public class User implements Identifiable {
 	
 	public boolean hasKarmaToAnswerOwnQuestion(EnvironmentKarma environmentKarma) {
 		long answerOwnQuestion = environmentKarma.get(PermissionRules.ANSWER_OWN_QUESTION);
-		return (this.karma >= answerOwnQuestion) || isModerator();
+		return (this.karma >= answerOwnQuestion) || isModeratororTeacher();
 	}
 	
 	public boolean hasKarmaToAnswerInactiveQuestion(EnvironmentKarma environmentKarma) {
 		long answerInactiveQuestion = environmentKarma.get(PermissionRules.INACTIVATE_QUESTION);
-		return (this.karma >= answerInactiveQuestion) || isModerator();
+		return (this.karma >= answerInactiveQuestion) || isModeratororTeacher();
 	}
 	
 	public List<LoginMethod> getLoginMethods() {

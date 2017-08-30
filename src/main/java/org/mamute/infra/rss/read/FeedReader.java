@@ -8,7 +8,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.log4j.Logger;
 import org.mamute.infra.rss.RSSType;
 
@@ -33,7 +33,7 @@ public class FeedReader {
 
 	private String getXmlFrom(String uri){
 		HttpGet httpGet = new HttpGet(uri);
-		HttpClient httpClient = new DefaultHttpClient();
+		HttpClient httpClient = HttpClientBuilder.create().build();
 		try {
 			HttpResponse response = httpClient.execute(httpGet);
 			HttpEntity entity = response.getEntity();

@@ -9,7 +9,7 @@ public class VisibleCommentList {
 		ArrayList<Comment> visibleComments = new ArrayList<Comment>();
 		for (Comment comment : comments) {
 			boolean isLogged = user != null;
-			boolean userIsModeratorOrAuthor = isLogged && (user.isModerator() || user.isAuthorOf(comment));
+			boolean userIsModeratorOrAuthor = isLogged && (user.isModeratororTeacher() || user.isAuthorOf(comment));
 			boolean isVisible = comment.isVisible() || userIsModeratorOrAuthor;
 			if (isVisible && !comment.isDeleted()) {
 				visibleComments.add(comment);

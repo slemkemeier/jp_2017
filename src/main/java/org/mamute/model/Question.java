@@ -400,7 +400,7 @@ public class Question extends Moderatable implements Post, Taggable, ViewCountab
 	}
 	
 	public boolean isVisibleFor(User user) {
-		return this.isVisible() || (user != null && (user.isModerator() || user.isAuthorOf(this)));
+		return this.isVisible() || (user != null && (user.isModeratororTeacher() || user.isAuthorOf(this)));
 	}
 
 	@Override

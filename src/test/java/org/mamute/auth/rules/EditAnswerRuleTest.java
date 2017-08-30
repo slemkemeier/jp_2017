@@ -54,7 +54,17 @@ public class EditAnswerRuleTest extends TestCase{
 		EnvironmentKarma env = new EnvironmentKarma(new MamuteEnvironment(ctx));
 		assertTrue(new EditAnswerRule(loggedUser, env).isAllowed(answer));
 	}
-	
+
+	@Test
+	public void teacher_should_be_allowed_to_edit() throws IOException {
+		LoggedUser loggedUser = loggedUser("teacher", "teacher@brutal.com", NOT_AUTHOR);
+		loggedUser.getCurrent().asTeacher();
+
+		ServletContext ctx = mock(ServletContext.class);
+		EnvironmentKarma env = new EnvironmentKarma(new MamuteEnvironment(ctx));
+		assertTrue(new EditAnswerRule(loggedUser, env).isAllowed(answer));
+	}
+
 	@Test
 	public void loggedUser_with_low_karma_should_not_be_allowed_to_edit() throws IOException {
 		LoggedUser other = loggedUser("other", "other@brutal.com", NOT_AUTHOR);
