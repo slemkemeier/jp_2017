@@ -1,5 +1,4 @@
-LaunchCode Q&A Platform
-Adapted from Mamute (mamute.org)
+Exploring Development of Open Source Platforms
+Adapting Mamute (mamute.org)
 
-Sally Lemkemeier
-Princeton University
+Part of an Independent Work project: Evaluating Q&A Platforms for Educational Purposes
